@@ -30,7 +30,7 @@ hora = Label(root, bg= '#ffe5ec', fg='#fb6f92', font=('Arial', 65, 'bold'))
 hora.pack(pady=2)
 tela = tk.Canvas(root, width=600, height=60, bg='#ffe5ec', bd=0, highlightthickness=0, relief='ridge')
 tela.pack()
-
+ 
 get_nome()
 get_data()
 get_hora()
