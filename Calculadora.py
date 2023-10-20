@@ -7,6 +7,7 @@ cor3 = '#FFADAD' #vermelho
 cor4 = '#FFD6A5' #laranja
 cor5 = '#FDFFB6' #amarelo
 
+
 '''CORPO DA CALCULADORA'''
 root = Tk()
 root.title('Calculadora')
@@ -14,13 +15,28 @@ root.geometry('238x380')
 root.minsize(238, 380)
 root.maxsize(238, 380)
 root.config(background=cor1)
+corpo = Frame(root, width=220, heigh=380, background=cor1)
+corpo.grid(row=1, column=0, columnspan=4, sticky=N + W + S + E, padx=13, pady=8)
+
 
 '''VISOR'''
 tela = Frame(root, width=211, height=55, bg=cor2)
 tela.grid(row=0, column=0, columnspan=3, sticky=N + W + S + E, padx=13, pady=8)
 
-corpo = Frame(root, width=220, heigh=380, background=cor1)
-corpo.grid(row=1, column=0, columnspan=4, sticky=N + W + S + E, padx=13, pady=8)
+
+#Colocando valores no visor
+valor_texto= StringVar()
+visor_tela = Label(tela, width=14, height=2, textvariable=valor_texto, bg=cor2, anchor='e', fg='#242323', font=('Sans-serif', 18), justify=RIGHT)
+visor_tela.place(x=5, y=0)
+
+
+'''DEFININDO FUNÇÕES'''
+def entrada_valores(evento):
+    resultado = eval('10 + 1')
+
+    #Printando os valores digitados
+    valor_texto.set(todos_valores)
+
 
 '''BOTÕES'''
 b_apagar = Button(corpo, text='<--', width=13, height=2, bg=cor3, fg='black')
@@ -68,5 +84,10 @@ b_result.place(x=166, y=200)
 
 b_sair = Button(corpo, text='SAIR', width=13, height=2, bg=cor2, fg='black')
 b_sair.place(x=55, y=250)
+
+
+'''CHAMAR FUNÇÕES'''
+entrada_valores()
+
 
 root.mainloop()
