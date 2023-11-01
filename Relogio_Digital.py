@@ -2,7 +2,7 @@ from tkinter import *
 import tkinter as tk
 import os
 from time import strftime
-
+ 
 root = tk.Tk()
 root.title('Relógio')
 root.geometry('400x200')
